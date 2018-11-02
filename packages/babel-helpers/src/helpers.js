@@ -863,10 +863,10 @@ helpers.iterableToArray = helper("7.0.0-beta.0")`
     if (
       Array.isArray(iter)
       || typeof iter === 'string'
-      || (typeof Symbol === 'function' && Symbol.iterator in Object(iter))
+      || (typeof global.Symbol === 'function' && global.Symbol.iterator in Object(iter))
       || (iter && 'length' in iter)
-      || (typeof Map !== 'undefined' && iter instanceof Map)
-      || (typeof Set !== 'undefined' && iter instanceof Set)
+      || (typeof global.Map !== 'undefined' && iter instanceof global.Map)
+      || (typeof global.Set !== 'undefined' && iter instanceof global.Set)
       || Object.prototype.toString.call(iter) === "[object Arguments]"
     ) return Array.from(iter);
   }
